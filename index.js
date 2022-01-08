@@ -16,8 +16,8 @@ async function createConnection() {
 export const client = await createConnection();
 
 app.use(express.json());
+app.use("/movies", moviesRoutes);
 app.use((req, res, next) => {
   res.send("Hello World");
 });
-app.use("/movies", moviesRoutes);
 app.listen(PORT, () => console.log("Server Started", PORT));
